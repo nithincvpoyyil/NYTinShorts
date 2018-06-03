@@ -26,9 +26,16 @@ export class TrendingComponent implements OnInit {
     });
   }
 
-
   parseImage(item: IMultimedia[]): string {
-    return item[0] && item[0].url ? item[0].url : '';
+    const totalItem = item && item.length ? item.length : 0;
+    let url = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+    for (let i = (totalItem - 1); i >= 0; i--) {
+      if (item[i] && item[i].url) {
+        url = item[i].url;
+        break;
+      }
+    }
+    return url;
   }
 
 }

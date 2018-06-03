@@ -1,7 +1,16 @@
-mat-card.example-card.mat-card {
-    max-width: 250px;
-    height: 400px;
-    margin: 15px;
-    float: left;
-    overflow: hidden;
+
+app-article-card {
+    max-height: 533px;
+    border: 1px solid rgba(0,0,0,.1)!important;
+}
+
+app-article-card {
+    border: 1px solid rgba(0,0,0,.1)!important;
+    padding:5px;
+}
+
+.trending {
+  .row {
+      justify-content: space-around;
+  }
 }

@@ -1,22 +1,5 @@
-<section class="trending">
-
-  <mat-card class="example-card" *ngFor="let item of resultSet">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{item.title}}</mat-card-title>
-      <mat-card-subtitle>{{item.published_date}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="{{parseImage(item.multimedia)}}" alt="Photo">
-    <mat-card-content>
-      <p>
-        {{item.abstract}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-
-
+<section class="trending container-fluid">
+  <div class="row">
+    <app-article-card *ngFor="let item of resultSet" [article]="item" class="col-xs-24 col-sm-12 col-md-8 col-lg-5"></app-article-card>
+  </div>
 </section>

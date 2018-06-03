@@ -1,0 +1,38 @@
+<!-- <mat-card class="nyt-article-card">
+  <mat-card-header>
+    <div mat-card-avatar class="nyt-article-image"></div>
+    <mat-card-title>{{article.title}}</mat-card-title>
+    <mat-card-subtitle>{{article.published_date}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{parseImage(article.multimedia)}}" alt="Photo">
+  <mat-card-content>
+    <p>
+      {{article.abstract}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Share</button>
+  </mat-card-actions>
+</mat-card> -->
+
+<article class="nyt-article-card article-container">
+  <div class="article-img">
+    <img mat-card-image src="{{parseImage(article.multimedia)}}" alt="Photo">
+  </div>
+  <div class="article-section">
+    <div class="article-title">{{article.title}}</div>
+    <div class="article-content">
+      <p>
+        {{article.abstract}}
+      </p>
+    </div>
+    <div class="article-actions">
+      <span class="article-date">{{article.published_date}}</span>
+      <span class="dot-symbol">/</span>
+      <span class="article-type">{{article.section}}</span>
+      <div class="article-actions">Share</div>
+    </div>
+
+  </div>
+
+</article>
