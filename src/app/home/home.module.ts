@@ -5,11 +5,12 @@ import { RoutingModule } from './home.routing.module';
 import { CoreModule } from '../core/core.module';
 import { MaterialModule } from '../material/material.module';
 import { UiModule } from '../ui/ui.module';
+import { FeaturedComponent } from './featured/featured.component';
 @NgModule({
   imports: [
     CommonModule, RoutingModule, CoreModule, MaterialModule, UiModule
   ],
-  declarations: [TrendingComponent],
+  declarations: [TrendingComponent, FeaturedComponent],
   exports: [TrendingComponent]
 })
 export class HomeModule { }

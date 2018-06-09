@@ -1,5 +1,8 @@
 <section class="trending container-fluid">
-  <div class="row">
-    <app-article-card *ngFor="let item of resultSet" [article]="item" class="col-xs-24 col-sm-12 col-md-8 col-lg-5"></app-article-card>
+  <section class="featured-container" *ngIf="featured">
+    <app-featured [articles]="featured"></app-featured>
+  </section>
+  <div class="cards-container">
+    <app-article-card *ngFor="let item of resultSet" [article]="item" class="app-article-card"></app-article-card>
   </div>
 </section>

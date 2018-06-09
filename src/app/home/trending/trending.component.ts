@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NYTService } from '../../core/api/nyt.service';
-import { INYTRespose, IMultimedia, IResultSet } from '../../core/api';
+import { INYTRespose, IMultimedia, IArticle } from '../../core/api';
 import * as Immutable from 'immutable';
 
 @Component({
@@ -11,17 +11,17 @@ import * as Immutable from 'immutable';
 export class TrendingComponent implements OnInit {
 
   public articleRespose: Immutable.Map<string, any>;
-  public resultSet: Immutable.List<IResultSet>;
+  public resultSet: Immutable.List<IArticle>;
+  public featured: Immutable.List<IArticle>;
 
   constructor(private nytService: NYTService) { }
 
   ngOnInit() {
     this.nytService.getNYTtrendingArticles().subscribe((data: INYTRespose) => {
-      console.log(data);
       this.articleRespose = Immutable.Map<string, any>(data);
       this.articleRespose.delete('results');
-
-      this.resultSet = Immutable.List<IResultSet>(data.results);
+      this.resultSet = Immutable.List<IArticle>(data.results);
+      this.featured = this.resultSet.setSize(5);
       data = null;
     });
   }
@@ -37,5 +37,4 @@ export class TrendingComponent implements OnInit {
     }
     return url;
   }
-
 }

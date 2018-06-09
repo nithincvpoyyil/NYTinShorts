@@ -1,16 +1,30 @@
 
 app-article-card {
-    max-height: 533px;
-    border: 1px solid rgba(0,0,0,.1)!important;
-}
-
-app-article-card {
     border: 1px solid rgba(0,0,0,.1)!important;
     padding:5px;
+    margin: 5px 0;
+    float: left;
+    max-width: 300px;
+    width: 15%;
+    height: 352px;
+}
+
+.cards-container {
+    width: 100%;
+    padding: 2% 4%;
 }
 
 .trending {
-  .row {
-      justify-content: space-around;
-  }
+    max-width: 63rem;
+    overflow: hidden;
 }
+
+.big-tile img.mat-card-image {
+    max-height: 190px;
+    background: #ccc;
+    min-height: 188px;
+}
+
+
+
+

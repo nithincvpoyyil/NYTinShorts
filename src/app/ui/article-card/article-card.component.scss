@@ -1,29 +1,64 @@
 article.nyt-article-card.article-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-
-
 
 .article-img {
-    width: 100%;
-    height: auto;
-    position:relative;
+  width: 100%;
+  height: auto;
+  position: relative;
 }
 
-img.mat-card-image {
-    position: relative;
-    width: 100%;
-    height: auto;
-    max-height: 150px;
-    background: #ccc;
-    min-height: 150px;
+.mat-card-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-height: 190px;
+  background: #ccc;
+  min-height: 188px;
 }
+
+
 
 .article-section {
-    width: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.article-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.article-content {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.article-actions {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color:#333;
+}
+
+.dot-symbol {
+    margin-left: 10px;
 }
 
 
+app-article-card.app-article-card.big-tile .article-img {
+  height: 195px;
+  position:relative;
+  min-width: 345px;
+  width:100%;
+}
+
+app-article-card.app-article-card.big-tile .article-img img {
+  position:absolute;
+  height:100%;
+  width:100%;
+  min-height: 100%;
+  max-width: 100%;
+}

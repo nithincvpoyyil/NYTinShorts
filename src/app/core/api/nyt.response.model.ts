@@ -11,7 +11,7 @@ export interface IMultimedia {
     copyright: string;
 }
 
-export interface IResultSet {
+export interface IArticle {
     section: string;
     subsection: string;
     title: string;
@@ -38,6 +38,6 @@ export interface INYTRespose {
     section: string;
     last_updated: Date;
     num_results: number;
-    results: IResultSet[];
+    results: IArticle[];
 }
 

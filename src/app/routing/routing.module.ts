@@ -13,7 +13,7 @@ const appRoutes: Routes = [
     path: 'pagenotfound',
     component: PagenotfoundComponent
   },
-  { path: '**',  redirectTo: 'pagenotfound'}
+  { path: '**',  redirectTo: 'trending'}
 ];
 
 @NgModule({

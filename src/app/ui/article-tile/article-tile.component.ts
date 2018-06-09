@@ -2,20 +2,19 @@ import { Component, OnInit, Input } from '@angular/core';
 import { IArticle, IMultimedia } from '../../core/api';
 
 @Component({
-  selector: 'app-article-card',
-  templateUrl: './article-card.component.html',
-  styleUrls: ['./article-card.component.scss']
+  selector: 'app-article-tile',
+  templateUrl: './article-tile.component.html',
+  styleUrls: ['./article-tile.component.scss']
 })
-export class ArticleCardComponent implements OnInit {
-
+export class ArticleTileComponent implements OnInit {
 
   @Input() article: IArticle;
 
   constructor() { }
 
   ngOnInit() {
-    // console.log(this.article);
   }
+
 
   parseImage(article: IArticle): string {
 
