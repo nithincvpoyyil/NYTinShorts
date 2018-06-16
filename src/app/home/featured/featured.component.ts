@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { IArticle } from '../../core/api';
 import * as Immutable from 'immutable';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-featured',
   templateUrl: './featured.component.html',
   styleUrls: ['./featured.component.scss']

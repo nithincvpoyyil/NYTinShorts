@@ -1,1 +1,19 @@
+.last {
+  .article-container {
+    margin-bottom: 0 !important;
+  }
+}
 
+.left-side{
+    padding-left:1.4%;
+}
+
+.not-style-a-wrapper {
+  text-decoration: none;
+  cursor: pointer;
+  color:inherit;
+  &:active {
+    text-decoration:none;
+    color:inherit;
+  }
+}

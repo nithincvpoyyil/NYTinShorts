@@ -20,8 +20,12 @@ export class TrendingComponent implements OnInit {
     this.nytService.getNYTtrendingArticles().subscribe((data: INYTRespose) => {
       this.articleRespose = Immutable.Map<string, any>(data);
       this.articleRespose.delete('results');
-      this.resultSet = Immutable.List<IArticle>(data.results);
-      this.featured = this.resultSet.setSize(5);
+      let featured: IArticle[] = data.results.slice(0, 5);
+      let nonFeatured: IArticle[] = data.results.slice(5, data.results.length);
+      this.resultSet = Immutable.List<IArticle>(nonFeatured);
+      this.featured = Immutable.List<IArticle>(featured);
+      featured = null;
+      nonFeatured = null;
       data = null;
     });
   }

@@ -1,13 +1,18 @@
+
 <a class="not-style-a-wrapper" href="{{article.url}}" target="_blank">
-<article class="nyt-article-ca-tile article-container">
+<article class="nyt-article-card article-container featured-card">
   <div class="article-img" [style.background]="'url(' + parseImage(article) + ')'">
+    <img class="mat-card-image" [style.opacity]="0" src="{{parseImage(article)}}" alt="{{article.title}}">
   </div>
   <div class="article-section">
     <div class="article-title">{{article.title}}</div>
     <div class="article-content">
       <p>
-        {{ (article.abstract.length>6)? (article.abstract | slice:0:160)+'....':(article.abstract) }}
+        {{article.abstract}}
       </p>
+    </div>
+    <div class="article-briefing">
+      <span class="article-type">{{article.section}}</span>
     </div>
   </div>
 </article>

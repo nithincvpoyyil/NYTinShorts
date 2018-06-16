@@ -1,28 +1,35 @@
 
 app-article-card {
-    border: 1px solid rgba(0,0,0,.1)!important;
+    border: 1px solid rgba(0,0,0,0)!important;
     padding:5px;
     margin: 5px 0;
     float: left;
     max-width: 300px;
-    width: 15%;
-    height: 352px;
+    width: 23.5%;
+    height: auto;
 }
-
+.featured-container{
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+}
 .cards-container {
-    width: 100%;
-    padding: 2% 4%;
+    width: 98.4%;
+    padding-left: 1.5%;
 }
 
 .trending {
-    max-width: 63rem;
+    max-width: 64rem;
     overflow: hidden;
+    margin-top: 2rem;
 }
 
-.big-tile img.mat-card-image {
-    max-height: 190px;
-    background: #ccc;
-    min-height: 188px;
+
+.app-article-card {
+    .article-img{
+        cursor: pointer;
+        background-color: #ccc !important;
+        
+    }
 }
 
 

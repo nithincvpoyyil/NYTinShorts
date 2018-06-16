@@ -1,22 +1,18 @@
-
-
-<article class="nyt-article-card article-container">
-  <div class="article-img">
-    <img class="mat-card-image" src="{{parseImage(article)}}" alt="{{article.title}}">
-  </div>
-  <div class="article-section">
-    <div class="article-title">{{article.title}}</div>
-    <div class="article-content">
-      <p>
-        {{article.abstract}}
-      </p>
-    </div>
-    <div class="article-actions">
-      <span class="article-date">{{article.published_date | date :'mediumDate'}}</span>
-      <span class="dot-symbol"></span>
-      <span class="article-type">{{article.section}}</span>
-    </div>
-
-  </div>
-
-</article>
+<a class="not-style-a-wrapper" href="{{article.url}}" target="_blank">
+    <article class="nyt-article-card article-container">
+        <div class="article-img" [style.background]="'url(' + parseImage(article) + ')'">
+          <img class="mat-card-image" [style.opacity]="0" src="{{parseImage(article)}}" alt="{{article.title}}">
+        </div>
+        <div class="article-section">
+          <div class="article-title">{{article.title}}</div>
+          <div class="article-content">
+            <p>
+              {{article.abstract}}
+            </p>
+          </div>
+          <div class="article-briefing">
+            <span class="article-type">{{article.section}}</span>
+          </div>
+        </div>
+      </article>
+</a>

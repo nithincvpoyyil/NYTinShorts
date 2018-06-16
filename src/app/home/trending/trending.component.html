@@ -2,7 +2,7 @@
   <section class="featured-container" *ngIf="featured">
     <app-featured [articles]="featured"></app-featured>
   </section>
-  <div class="cards-container">
+  <div class="cards-container row">
     <app-article-card *ngFor="let item of resultSet" [article]="item" class="app-article-card"></app-article-card>
   </div>
 </section>
