@@ -5,7 +5,7 @@ import { INYTRespose } from './nyt.response.model';
 import { ArticleSections } from '../../home/store';
 import { Observable } from 'rxjs';
 
-const API_KEY = '0c126993218841308b75051caac11b26';
+const API_KEY = 'asx2rfgxx12efrdx67x56vbgds2x';
 const APIS: any = {
   home: `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${API_KEY}`,
   section: (section: ArticleSections) => {
