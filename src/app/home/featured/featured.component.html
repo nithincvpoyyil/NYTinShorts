@@ -1,12 +1,11 @@
 <section class="featured row">
   <section class="left-side article-container col-xs-23 col-sm-11 big-tile">
-    <app-featured-card [article]="this.articles.get(0)" class="app-article-card big-tile"></app-featured-card>
+    <app-featured-card [article]="this.articles[0]" class="app-article-card big-tile"></app-featured-card>
   </section>
   <section class="right-side article-container col-xs-23 offset-1 col-sm-11">
-    <app-article-tile [article]="this.articles.get(1)" class="app-article-card small-tile"></app-article-tile>
-    <app-article-tile [article]="this.articles.get(2)" class="app-article-card small-tile"></app-article-tile>
-    <app-article-tile [article]="this.articles.get(3)" class="app-article-card small-tile"></app-article-tile>
-    <app-article-tile [article]="this.articles.get(4)" class="app-article-card small-tile last"></app-article-tile>
+    <app-article-tile [article]="this.articles[1]" class="app-article-card small-tile"></app-article-tile>
+    <app-article-tile [article]="this.articles[2]" class="app-article-card small-tile"></app-article-tile>
+    <app-article-tile [article]="this.articles[3]" class="app-article-card small-tile"></app-article-tile>
+    <app-article-tile [article]="this.articles[4]" class="app-article-card small-tile last"></app-article-tile>
   </section>
 </section>
-

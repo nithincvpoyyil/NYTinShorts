@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuConfigService } from '../menu.config';
+import { Store } from '@ngrx/store';
+import * as fromArticles from '../../home/store';
+import { ShowAllAction } from '../../home/store';
 
 @Component({
   selector: 'app-menu',
@@ -7,14 +10,21 @@ import { MenuConfigService } from '../menu.config';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+  public menuList: any[];
 
-  public menuList:any[];
-
-  constructor(private configService: MenuConfigService) {
-    this.menuList = configService.getMenuIem();
+  constructor(
+    private configService: MenuConfigService,
+    private store: Store<fromArticles.State>
+  ) {
+    this.menuList = this.configService.getMenuIem();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  onMenuItemClick(item: any) {
+    const section = <fromArticles.ArticleSections>(
+      fromArticles.ArticleSections[item.section]
+    );
+    this.store.dispatch(new ShowAllAction(section));
+  }
 }

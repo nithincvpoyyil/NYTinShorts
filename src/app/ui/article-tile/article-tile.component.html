@@ -1,14 +1,14 @@
-<a class="not-style-a-wrapper" href="{{article.url}}" target="_blank">
-<article class="nyt-article-ca-tile article-container">
-  <div class="article-img" [style.background]="'url(' + parseImage(article) + ')'">
-  </div>
-  <div class="article-section">
-    <div class="article-title">{{article.title}}</div>
-    <div class="article-content">
-      <p>
-        {{ (article.abstract.length>6)? (article.abstract | slice:0:160)+'....':(article.abstract) }}
-      </p>
+<a class="not-style-a-wrapper" *ngIf="article" href="{{article.url}}" target="_blank">
+  <article class="nyt-article-ca-tile article-container">
+    <div class="article-img" [style.background]="'url(' + parseImage(article) + ')'">
     </div>
-  </div>
-</article>
+    <div class="article-section">
+      <div class="article-title">{{article.title}}</div>
+      <div class="article-content">
+        <p>
+          {{ (article.abstract.length>6)? (article.abstract | slice:0:160)+'....':(article.abstract) }}
+        </p>
+      </div>
+    </div>
+  </article>
 </a>

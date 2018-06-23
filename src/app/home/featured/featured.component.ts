@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import { IArticle } from '../../core/api';
-import * as Immutable from 'immutable';
+import { Article } from '../store';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -9,13 +8,9 @@ import * as Immutable from 'immutable';
   styleUrls: ['./featured.component.scss']
 })
 export class FeaturedComponent implements OnInit {
+  @Input() articles: Article;
 
-  @Input() articles: Immutable.List<IArticle>;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-    console.log('test:', this.articles.get(0), this.articles.get(1));
-  }
-
+  ngOnInit() {}
 }

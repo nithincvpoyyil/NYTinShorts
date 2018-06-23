@@ -6,11 +6,20 @@ import { CoreModule } from '../core/core.module';
 import { MaterialModule } from '../material/material.module';
 import { UiModule } from '../ui/ui.module';
 import { FeaturedComponent } from './featured/featured.component';
+import { StoreModule } from '@ngrx/store';
+import { articleReducer, ArticleEffects } from './store';
+import { EffectsModule } from '@ngrx/effects';
 @NgModule({
   imports: [
-    CommonModule, RoutingModule, CoreModule, MaterialModule, UiModule
+    CommonModule,
+    RoutingModule,
+    CoreModule,
+    MaterialModule,
+    UiModule,
+    StoreModule.forFeature('articles', articleReducer),
+    EffectsModule.forFeature([ArticleEffects])
   ],
   declarations: [TrendingComponent, FeaturedComponent],
   exports: [TrendingComponent]
 })
-export class HomeModule { }
+export class HomeModule {}

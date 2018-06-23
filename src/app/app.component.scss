@@ -3,9 +3,14 @@
 }
 
 .nyt-app-menu {
-  width: 100%;
+  margin:auto;
+  max-width: 64rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 .nyt-app-landing {
   width: 100%;
 }
+
+
