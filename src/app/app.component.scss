@@ -1,16 +1,35 @@
 .nyt-app-container {
   width: 100%;
 }
+.app-header{
+  width:100%;
+  background: #fcfcfc;
+  position: fixed;
+  z-index: 100;
+  top:0;
+  height:210px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 0;
+  padding-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  text-align: center;
+  color: #333;
+}
 
 .nyt-app-menu {
   margin:auto;
-  max-width: 64rem;
+  max-width: 80rem;
   overflow: hidden;
   margin-bottom: 1rem;
 }
 
 .nyt-app-landing {
   width: 100%;
+  position: relative;
+  top:250px;
 }
 
 

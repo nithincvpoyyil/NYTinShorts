@@ -13,6 +13,7 @@ ul {
         max-width: 120px;  
         text-align: left;
         padding: 5px;
+        padding-left:10px;
         color: #444;
         list-style: none;
         margin: 3px;
@@ -21,6 +22,11 @@ ul {
         transition: all 0.1s ease-in;
         &:hover{
             font-weight: 400;
+        }
+
+        &.selected {
+            color: #fff ;
+            background: rgba(33, 33, 33, 0.33);
         }
     }
 }

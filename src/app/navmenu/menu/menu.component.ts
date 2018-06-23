@@ -11,6 +11,7 @@ import { ShowAllAction } from '../../home/store';
 })
 export class MenuComponent implements OnInit {
   public menuList: any[];
+  selectedSection = '';
 
   constructor(
     private configService: MenuConfigService,
@@ -19,12 +20,29 @@ export class MenuComponent implements OnInit {
     this.menuList = this.configService.getMenuIem();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.store.select('articles').subscribe((state: any) => {
+      this.selectedSection = state.filter;
+    });
+  }
 
   onMenuItemClick(item: any) {
     const section = <fromArticles.ArticleSections>(
       fromArticles.ArticleSections[item.section]
     );
     this.store.dispatch(new ShowAllAction(section));
+  }
+
+  isSelectedSection(item: any) {
+    if (
+      item &&
+      item.section &&
+      this.selectedSection &&
+      item.section.toLowerCase() === this.selectedSection.toLocaleLowerCase()
+    ) {
+      return true;
+    }
+
+    return false;
   }
 }

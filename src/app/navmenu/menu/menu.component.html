@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let item of menuList" (click)="onMenuItemClick(item)">
+  <li *ngFor="let item of menuList" (click)="onMenuItemClick(item)" [ngClass]="{'selected': isSelectedSection(item)}">
     <a>{{item.title}}</a>
   </li>
 </ul>
