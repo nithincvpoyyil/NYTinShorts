@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuConfigService } from '../menu.config';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import * as fromArticles from '../../home/store';
-import { ShowAllAction } from '../../home/store';
+import { ArticleSections } from '../../home/store';
 
 @Component({
   selector: 'app-menu',
@@ -12,6 +12,7 @@ import { ShowAllAction } from '../../home/store';
 export class MenuComponent implements OnInit {
   public menuList: any[];
   selectedSection = '';
+  state$ = '';
 
   constructor(
     private configService: MenuConfigService,
@@ -21,28 +22,27 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.select('articles').subscribe((state: any) => {
-      this.selectedSection = state.filter;
-    });
+    this.store
+      .pipe(select(fromArticles.getFilterType))
+      .subscribe((filter: ArticleSections) => {
+        this.selectedSection = filter;
+        this.state$ = filter;
+      });
   }
 
   onMenuItemClick(item: any) {
     const section = <fromArticles.ArticleSections>(
       fromArticles.ArticleSections[item.section]
     );
-    this.store.dispatch(new ShowAllAction(section));
+    this.store.dispatch(new fromArticles.ShowAllAction(section));
   }
 
   isSelectedSection(item: any) {
-    if (
+    return (
       item &&
       item.section &&
       this.selectedSection &&
       item.section.toLowerCase() === this.selectedSection.toLocaleLowerCase()
-    ) {
-      return true;
-    }
-
-    return false;
+    );
   }
 }

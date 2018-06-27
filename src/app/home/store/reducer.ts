@@ -1,5 +1,6 @@
 import { Article, ArticleSections } from './model';
 import { ArticleActionTypes, ArticleActionUnion } from './actions';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 export interface State {
   filter: ArticleSections;
@@ -32,10 +33,24 @@ export function articleReducer(
 
 // selectors
 
-export const getArticles = (state: State) => state.articles;
+export const getArticlesState = createFeatureSelector<State>('articles');
 
-export const getFilterType = (state: State) => state.filter;
+export const getArticles = createSelector(
+  getArticlesState,
+  state => state.articles
+);
 
-export const getLoading = (state: State) => state.loading;
+export const getFilterType = createSelector(
+  getArticlesState,
+  (state: State) => state.filter
+);
 
-export const getError = (state: State) => state.error;
+export const getLoading = createSelector(
+  getArticlesState,
+  (state: State) => state.loading
+);
+
+export const getError = createSelector(
+  getArticlesState,
+  (state: State) => state.error
+);
