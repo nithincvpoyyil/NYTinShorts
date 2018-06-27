@@ -26,11 +26,13 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     SettingsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({
-      name: 'NgRx Book Store DevTools',
+      name: 'NgRx Article Store DevTools',
       logOnly: environment.production
     }),
     EffectsModule.forRoot([]),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
