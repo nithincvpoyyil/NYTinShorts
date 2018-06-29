@@ -9,12 +9,13 @@ import {
   BrowserAnimationsModule,
   NoopAnimationsModule
 } from '@angular/platform-browser/animations';
-import { StoreModule, StoreFeatureModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducers, metaReducers } from './store';
+import { reducers, metaReducers, RouterEffects } from './store';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -29,7 +30,10 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       name: 'NgRx Article Store DevTools',
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot({
+      stateKey: 'router'
+    }),
+    EffectsModule.forRoot([RouterEffects]),
     ServiceWorkerModule.register('/ngsw-worker.js', {
       enabled: environment.production
     })

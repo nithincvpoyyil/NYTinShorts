@@ -3,6 +3,7 @@ import { MenuConfigService } from '../menu.config';
 import { Store, select } from '@ngrx/store';
 import * as fromArticles from '../../home/store';
 import { ArticleSections } from '../../home/store';
+import { Back } from '../../store';
 
 @Component({
   selector: 'app-menu',
@@ -44,5 +45,9 @@ export class MenuComponent implements OnInit {
       this.selectedSection &&
       item.section.toLowerCase() === this.selectedSection.toLocaleLowerCase()
     );
+  }
+
+  go() {
+    this.store.dispatch(new Back());
   }
 }

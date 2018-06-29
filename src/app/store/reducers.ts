@@ -1,17 +1,13 @@
-import {
-  ActionReducerMap,
-  ActionReducer,
-  MetaReducer,
-  createFeatureSelector,
-  createSelector
-} from '@ngrx/store';
+import { ActionReducerMap, ActionReducer, MetaReducer } from '@ngrx/store';
 import { environment } from '../../environments/environment';
-import * as fromArticle from '../home/store';
+import * as fromRouter from '@ngrx/router-store';
 export interface State {
-  ui?: any;
+  router: fromRouter.RouterReducerState;
 }
 
-export const reducers: ActionReducerMap<State> = {};
+export const reducers: ActionReducerMap<State> = {
+  router: fromRouter.routerReducer
+};
 
 // console.log all actions
 export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
@@ -25,24 +21,3 @@ export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
 export const metaReducers: MetaReducer<State>[] = !environment.production
   ? [logger]
   : [];
-
-// seelctors
-export const getArticleState = createFeatureSelector<fromArticle.State>(
-  'products'
-);
-
-export const getArticles = createSelector(
-  getArticleState,
-  fromArticle.getArticles
-);
-
-export const getFilter = createSelector(
-  getArticleState,
-  fromArticle.getFilterType
-);
-
-export const getLoadingStatus = createSelector(
-  getArticleState,
-  fromArticle.getLoading
-);
-export const getError = createSelector(getArticleState, fromArticle.getError);
