@@ -1,0 +1,3 @@
+export const LOCAL_STORAGE_KEY = 'articles';
+export const TRANSPARENT_B64_IMG =
+  'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';

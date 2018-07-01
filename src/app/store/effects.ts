@@ -4,9 +4,11 @@ import { Location } from '@angular/common';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { map, tap, switchMap, withLatestFrom } from 'rxjs/operators';
 import * as RouterActions from './actions';
-import { RouterDefinition, RouterState } from './models';
+import { RouterDefinition } from './models';
+import * as fromAppReducer from './reducers';
 import { RouterNavigationAction } from '@ngrx/router-store';
 import { of, empty } from 'rxjs';
+import { Store } from '@ngrx/store';
 
 @Injectable()
 export class RouterEffects {
@@ -33,11 +35,21 @@ export class RouterEffects {
     ofType(RouterActions.NavigationActionTypes.FORWARD),
     tap(() => this.location.forward())
   );
-  @Effect({ dispatch: false })
+  @Effect()
   navigationListener$ = this.actions$.ofType('ROUTER_NAVIGATION').pipe(
     switchMap(
       (routerNavigationAction: RouterNavigationAction<RouterDefinition>) => {
-        console.log('tets : routerNavigationAction', routerNavigationAction);
+        console.log(
+          'test : routerNavigationAction',
+          routerNavigationAction.payload.routerState
+        );
+
+        if (!this.previousRoute) {
+          this.currentRoute = routerNavigationAction;
+        } else {
+          this.previousRoute = this.currentRoute;
+          this.currentRoute = routerNavigationAction;
+        }
         return empty();
       }
     )
@@ -46,6 +58,7 @@ export class RouterEffects {
   constructor(
     private actions$: Actions,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private store$: Store<fromAppReducer.State>
   ) {}
 }

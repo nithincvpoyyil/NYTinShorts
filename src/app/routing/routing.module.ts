@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from '../about/about.component';
+import * as secuirty from '../security';
 
 const appRoutes: Routes = [
   {
@@ -11,7 +12,14 @@ const appRoutes: Routes = [
   },
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutComponent,
+    canActivate: [secuirty.RouterNavGuard],
+    resolve: [secuirty.RouterNavGuard]
+  },
+  {
+    path: 'faq',
+    loadChildren: '../faq/faq.module#FaqModule',
+    canLoad: [secuirty.RouterNavGuard]
   },
   { path: '**', redirectTo: 'trending' }
 ];
@@ -21,7 +29,8 @@ const appRoutes: Routes = [
     CommonModule,
     RouterModule.forRoot(appRoutes, { useHash: true, enableTracing: true })
   ],
-  exports: [RouterModule, AboutComponent],
-  declarations: [AboutComponent]
+  exports: [RouterModule],
+  declarations: [],
+  providers: [secuirty.RouterNavGuard]
 })
 export class RoutingModule {}

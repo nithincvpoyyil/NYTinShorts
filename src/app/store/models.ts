@@ -10,3 +10,5 @@ export interface RouterState {
   currentRouter: RouterDefinition;
   previousRouter: RouterDefinition;
 }
+
+export const LOCAL_STORAGE_KEY = 'articles';

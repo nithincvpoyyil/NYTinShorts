@@ -16,8 +16,11 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import {} from './shared/shared.module';
+import { AppLoaderModule } from './app-loader/app-loader.module';
+import { AboutComponent } from './about/about.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AboutComponent],
   imports: [
     BrowserModule,
     RoutingModule,
@@ -25,6 +28,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     NavmenuModule,
     HomeModule,
     SettingsModule,
+    AppLoaderModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({
       name: 'NgRx Article Store DevTools',
